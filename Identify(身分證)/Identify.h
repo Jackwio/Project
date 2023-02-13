@@ -29,7 +29,9 @@ bool testIdCardIfExist(string idCard){
     string calculate = "ABCDEFGHJKLMNPQRSTUVXYWZIO" ;
     size_t English = calculate.find(idCard[0]) + 10 ;
     idCard = to_string(English) + idCard.substr(1) ;
-    
+
+
+    //把字元轉數字扣掉48
     total += idCard[0]-48 ;
 
     for( int i = 1 ; i < idCard.size() - 1 ; i++ ){

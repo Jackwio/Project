@@ -10,11 +10,12 @@ int main(){
     cin >> idCard ;
     Exist = testIdCardIfExist(idCard) ;
 
-    if(Exist)
+    if(Exist){
         cout << "Exist" ;
-    else
+    }
+    else{
         cout << "Not Exist" ;
-
+    }
     return 0 ;
 
 }
