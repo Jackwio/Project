@@ -8,6 +8,7 @@ vector<Client> clientObj;
 Client currentClient;
 
 void LogIn() {
+	system("cls");
 	string names, accounts, passwords;
 	ifstream in;
 	double deposits;
@@ -16,12 +17,12 @@ void LogIn() {
 	cin >> accounts;
 	cout << "Please Input Your password => ";
 	cin >> passwords;
-	/*for (auto it = clientObj.begin(); it != clientObj.end(); it++) {
+	for (auto it = clientObj.begin(); it != clientObj.end(); it++) {
 		if (it->getAccount().compare(accounts) == 0) {
 			currentClient = *it;
 			break;
 		}
-	}*/
+	}
 	in.open("Client.txt", ios::in);
 	while (!in.eof()) {
 		in >> names >> accounts >> passwords >> deposits;
@@ -31,7 +32,8 @@ void LogIn() {
 }
 
 void Register() {
-
+	system("cls");
+	int a;
 	string names, accounts, passwords;
 	double deposits;
 	ofstream out;
@@ -46,7 +48,7 @@ void Register() {
 
 	Client clients(names, accounts, passwords, deposits);
 	bool Matches = TestIfMatch(clients);
-
+	clientObj.push_back(clients);
 	//用 | 讓兩個同時使用
 	out.open("Client.txt", ios::out | ios::app );
 
@@ -57,12 +59,24 @@ void Register() {
 	if (Matches) {
 		clientObj.push_back(clients);
 		cout << "Register successfully" << endl ;
-		
-		LogIn();
 	}
 	else {
 		cout << "Fail";
 	}
-	
+	system("cls");
+	cout << "1.register \t 2.login"<< endl;
+	cout << "Input = > ";
+	cin >> a;
+	switch (a)
+	{
+	case 1:
+		system("cls");
+		Register();
+		break;
+	case 2:
+		system("cls");
+		LogIn();
+		break;
+	}
 }
 

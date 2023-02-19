@@ -2,12 +2,19 @@
 #include "Source.h"
 using namespace std;
 
+void LogIn();
+
 int main(void) {
 
-	string op;
+	int op;
+	cout << "1.register\t2.login" << endl;
+	cout << "Input = > ";
 	cin >> op;
-	if (op.compare("Reg") == 0) {
+	if (op == 1) {
 		Register();
+	}
+	else {
+		LogIn();
 	}
 	return 0;
 }
